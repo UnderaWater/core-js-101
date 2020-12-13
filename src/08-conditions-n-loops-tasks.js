@@ -37,7 +37,7 @@ function getFizzBuzz(num) {
   if (num % 5 === 0) {
     return 'Buzz';
   }
-  return num;;
+  return num;
 }
 
 
@@ -174,8 +174,8 @@ function doRectanglesOverlap(/* rect1, rect2 */) {
  *
  */
 function isInsideCircle(circle, point) {
-  let x = Math.abs(point.x - circle.center.x);
-  let y = Math.abs(point.y - circle.center.y);
+  const x = Math.abs(point.x - circle.center.x);
+  const y = Math.abs(point.y - circle.center.y);
   return ((x ** 2 + y ** 2) < circle.radius ** 2);
 }
 
