@@ -191,8 +191,14 @@ function isInsideCircle(circle, point) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  let result = null;
+  const arr = str.split('');
+  result = arr.find((it) => arr.indexOf(it) === arr.lastIndexOf(it));
+  if (result === undefined) {
+    result = null;
+  }
+  return result;
 }
 
 
@@ -218,8 +224,13 @@ function findFirstSingleChar(/* str */) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  let result = '';
+  result += isStartIncluded ? '[' : '(';
+  result += a < b ? `${a}, ` : `${b}, `;
+  result += a < b ? `${b}` : `${a}`;
+  result += isEndIncluded ? ']' : ')';
+  return result;
 }
 
 
@@ -277,8 +288,16 @@ function reverseInteger(num) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(/* ccn */) {
-  throw new Error('Not implemented');
+function isCreditCardNumber(ccn) {
+  const number = [...ccn.toString()].reverse();
+  const sum = number.reduce((el, n, i) => {
+    let x = +n;
+    if (i % 2) x *= 2;
+    if (x > 9) x -= 9;
+    return el + x;
+  }, 0);
+
+  return !(sum % 10);
 }
 
 /**
@@ -347,8 +366,14 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  const result = [];
+  let x = num;
+  while (x !== 0) {
+    result.push(x % n);
+    x = Math.floor(x / n);
+  }
+  return Number(result.reverse().join(''));
 }
 
 
@@ -387,8 +412,15 @@ function getCommonDirectoryPath(/* pathes */) {
  *                         [ 6 ]]
  *
  */
-function getMatrixProduct(/* m1, m2 */) {
-  throw new Error('Not implemented');
+function getMatrixProduct(m1, m2) {
+  const res = [];
+  m1.forEach((x, i) => {
+    res[i] = [];
+    for (let j = 0; j < m2[0].length; j += 1) {
+      res[i][j] = x.reduce((a, n, k) => a + n * m2[k][j], 0);
+    }
+  });
+  return res;
 }
 
 
