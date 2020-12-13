@@ -52,7 +52,7 @@ function getCicleCircumference(x) {
  *  -3, 3  => 0
  */
 function getAverage(a, b) {
-  return (a + b) / 2;
+  return ((a / 10 + b / 10) / 2) * 10;
 }
 
 /**

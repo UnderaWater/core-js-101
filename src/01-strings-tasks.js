@@ -52,7 +52,7 @@ function getStringLength(x) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  return `Hello, ${firstName} ${lastName}`;
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -203,7 +203,7 @@ function extractEmails(x) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
+function getRectangleString(width, height) {
   let result = '';
   for (let i = 0; i < height; i += 1) {
     if (i === 0) {
